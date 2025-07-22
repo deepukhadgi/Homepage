@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal // Hacker Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="matrix-bg"></div>
+    
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="prompt">root@system:~$</span>
+                <span class="typing-text" id="logo-text"></span>
+                <span class="cursor">█</span>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link">[home]</a>
+                <a href="#about" class="nav-link">[about]</a>
+                <a href="#projects" class="nav-link">[projects]</a>
+                <a href="#contact" class="nav-link">[contact]</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="btn red"></span>
+                            <span class="btn yellow"></span>
+                            <span class="btn green"></span>
+                        </div>
+                        <div class="terminal-title">terminal@hacker-hub</div>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line">
+                            <span class="prompt">visitor@system:~$</span>
+                            <span class="command">whoami</span>
+                        </div>
+                        <div class="terminal-output" id="terminal-output">
+                            <div class="output-line">Initializing secure connection...</div>
+                            <div class="output-line">Access granted. Welcome to the hub.</div>
+                            <div class="output-line typing-effect" id="main-text"></div>
+                        </div>
+                        <div class="terminal-input">
+                            <span class="prompt">visitor@system:~$</span>
+                            <span class="input-cursor">█</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="prompt">[+]</span> About.exe
+                </h2>
+                <div class="content-grid">
+                    <div class="code-block">
+                        <div class="code-header">about.json</div>
+                        <pre class="code-content">
+{
+  "name": "Anonymous Developer",
+  "role": "Full Stack Hacker",
+  "specialties": [
+    "Web Development",
+    "Cybersecurity",
+    "System Administration",
+    "Penetration Testing"
+  ],
+  "status": "online",
+  "location": "Cyberspace"
+}
+                        </pre>
+                    </div>
+                    <div class="stats-panel">
+                        <div class="stat-item">
+                            <span class="stat-label">Uptime:</span>
+                            <span class="stat-value" id="uptime">00:00:00</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">CPU Usage:</span>
+                            <span class="stat-value">
+                                <span id="cpu-usage">42</span>%
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="cpu-bar"></div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Memory:</span>
+                            <span class="stat-value">
+                                <span id="memory-usage">67</span>%
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="memory-bar"></div>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="prompt">[+]</span> Projects.dir
+                </h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-icon">🔒</span>
+                            <span class="project-name">SecureVault</span>
+                        </div>
+                        <div class="project-description">
+                            Encrypted password manager with military-grade security
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Cryptography</span>
+                            <span class="tech-tag">SQLite</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-icon">🌐</span>
+                            <span class="project-name">NetScanner</span>
+                        </div>
+                        <div class="project-description">
+                            Network vulnerability scanner and port analyzer
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Bash</span>
+                            <span class="tech-tag">Nmap</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-icon">💀</span>
+                            <span class="project-name">DarkWeb</span>
+                        </div>
+                        <div class="project-description">
+                            Anonymous communication platform with Tor integration
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Tor</span>
+                            <span class="tech-tag">WebRTC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="prompt">[+]</span> Contact.sh
+                </h2>
+                <div class="contact-terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="btn red"></span>
+                            <span class="btn yellow"></span>
+                            <span class="btn green"></span>
+                        </div>
+                        <div class="terminal-title">secure-channel</div>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="contact-info">
+                            <div class="contact-line">
+                                <span class="prompt">></span>
+                                <span class="contact-method">Email:</span>
+                                <span class="contact-value">hacker@encrypted.mail</span>
+                            </div>
+                            <div class="contact-line">
+                                <span class="prompt">></span>
+                                <span class="contact-method">Discord:</span>
+                                <span class="contact-value">Anonymous#1337</span>
+                            </div>
+                            <div class="contact-line">
+                                <span class="prompt">></span>
+                                <span class="contact-method">GitHub:</span>
+                                <span class="contact-value">github.com/h4ck3r</span>
+                            </div>
+                            <div class="contact-line">
+                                <span class="prompt">></span>
+                                <span class="contact-method">PGP Key:</span>
+                                <span class="contact-value">4A1B 2C3D 4E5F 6789</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <span class="prompt">root@system:~$</span>
+                <span>echo "Stay anonymous, stay secure" | tee /dev/null</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
