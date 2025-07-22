@@ -151,11 +151,11 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - deepukhadgi.com.np
-    - www.deepukhadgi.com.np
+    - your-domain.com
+    - www.your-domain.com
     secretName: hacker-homepage-tls
   rules:
-  - host: deepukhadgi.com.np
+  - host: your-domain.com
     http:
       paths:
       - path: /
@@ -165,7 +165,7 @@ spec:
             name: hacker-homepage-service
             port:
               number: 80
-  - host: www.deepukhadgi.com.np
+  - host: www.your-domain.com
     http:
       paths:
       - path: /
@@ -184,7 +184,7 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: admin@deepukhadgi.com.np
+    email: admin@your-domain.com
     privateKeySecretRef:
       name: letsencrypt-prod
     solvers:
@@ -200,7 +200,7 @@ metadata:
 spec:
   acme:
     server: https://acme-staging-v02.api.letsencrypt.org/directory
-    email: admin@deepukhadgi.com.np
+    email: admin@your-domain.com
     privateKeySecretRef:
       name: letsencrypt-staging
     solvers:

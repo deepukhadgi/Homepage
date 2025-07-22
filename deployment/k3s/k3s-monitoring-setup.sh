@@ -42,6 +42,11 @@ install_prometheus() {
     # Create monitoring namespace
     kubectl create namespace monitoring || true
     
+    # Generate secure random password
+    GRAFANA_PASSWORD=$(openssl rand -base64 12)
+    echo "Generated Grafana password: $GRAFANA_PASSWORD"
+    echo "IMPORTANT: Save this password securely!"
+    
     # Install Prometheus stack
     helm install prometheus prometheus-community/kube-prometheus-stack \
         --namespace monitoring \
@@ -49,7 +54,7 @@ install_prometheus() {
         --set grafana.persistence.enabled=true \
         --set grafana.persistence.size=1Gi \
         --set alertmanager.alertmanagerSpec.storage.volumeClaimTemplate.spec.resources.requests.storage=1Gi \
-        --set grafana.adminPassword=hacker123 \
+        --set grafana.adminPassword=$GRAFANA_PASSWORD \
         --wait
     
     print_success "Prometheus stack installed!"
@@ -84,16 +89,16 @@ spec:
               number: 80
 GRAFANA_EOF
     
-    # Create basic auth secret
-    htpasswd -cb /tmp/auth admin hacker123
+    # Create basic auth secret with secure password
+    htpasswd -cb /tmp/auth admin $GRAFANA_PASSWORD
     kubectl create secret generic grafana-auth \
         --from-file=/tmp/auth \
         -n monitoring \
         --dry-run=client -o yaml | kubectl apply -f -
     rm /tmp/auth
     
-    print_success "Grafana exposed at monitoring.deepukhadgi.com.np"
-    print_status "Username: admin, Password: hacker123"
+    print_success "Grafana exposed at monitoring.your-domain.com"
+    print_status "Username: admin, Password: $GRAFANA_PASSWORD"
 }
 
 # Install custom dashboards
@@ -170,15 +175,16 @@ main() {
     echo "=================================="
     echo "🎯 Monitoring Stack Installed!"
     echo "=================================="
-    echo "Grafana: https://monitoring.deepukhadgi.com.np"
+    echo "Grafana: https://monitoring.your-domain.com"
     echo "Username: admin"
-    echo "Password: hacker123"
+    echo "Password: $GRAFANA_PASSWORD"
     echo ""
     echo "Prometheus: http://CLUSTER_IP:9090"
     echo "AlertManager: http://CLUSTER_IP:9093"
     echo ""
+    echo "IMPORTANT: Save the Grafana password securely!"
     echo "Don't forget to add DNS record:"
-    echo "monitoring.deepukhadgi.com.np -> LoadBalancer IP"
+    echo "monitoring.your-domain.com -> LoadBalancer IP"
     echo "=================================="
 }
 
