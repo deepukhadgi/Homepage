@@ -1,6 +1,8 @@
-# 🖥️ Dark Hacker Homepage
+# 🖥️ Terminal Nexus
 
 A professional dark-themed terminal-style homepage with cyberpunk aesthetics, designed for developers and tech enthusiasts. Features interactive animations, matrix effects, and a fully responsive design.
+
+> **🚀 Live Demo**: Experience the dark terminal interface with hacker-themed animations
 
 ## ✨ Features
 
@@ -41,8 +43,8 @@ This project offers multiple deployment strategies for different needs:
 ### 1. 🖥️ **Local Development**
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/deepukhadgi/terminal-nexus.git
+cd terminal-nexus
 
 # Serve locally
 python3 -m http.server 8000
@@ -54,7 +56,7 @@ Perfect for self-hosting with a single Raspberry Pi:
 
 ```bash
 # Download and run setup script
-wget https://raw.githubusercontent.com/your-username/your-repo/main/deployment/raspberry-pi/raspberry-pi-setup.sh
+wget https://raw.githubusercontent.com/deepukhadgi/terminal-nexus/main/deployment/raspberry-pi/raspberry-pi-setup.sh
 chmod +x raspberry-pi-setup.sh
 ./raspberry-pi-setup.sh
 ```
@@ -255,8 +257,8 @@ nmap -sV your-domain.com
 ### Development Setup
 ```bash
 # Fork and clone
-git clone https://github.com/your-username/your-fork.git
-cd your-fork
+git clone https://github.com/your-username/terminal-nexus.git
+cd terminal-nexus
 
 # Create feature branch
 git checkout -b feature/your-feature
