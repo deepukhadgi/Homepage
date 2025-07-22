@@ -1,0 +1,82 @@
+# Development
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.test
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Node modules (if added in future)
+node_modules/
+npm-debug.log
+
+# Build outputs
+dist/
+build/
+.output/
+
+# Cache directories
+.cache/
+.parcel-cache/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# SSL certificates (if stored locally)
+*.crt
+*.key
+*.pem
+ssl/
+
+# Config files with sensitive data
+config.local.js
+config.production.js
+secrets.yaml
+.secrets
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+
+# IDE specific files
+.vscode/settings.json
+.idea/workspace.xml
+
+# Local development servers
+.serve/

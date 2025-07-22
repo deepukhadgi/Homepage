@@ -54,7 +54,7 @@ Perfect for self-hosting with a single Raspberry Pi:
 
 ```bash
 # Download and run setup script
-wget https://raw.githubusercontent.com/your-username/your-repo/main/raspberry-pi-setup.sh
+wget https://raw.githubusercontent.com/your-username/your-repo/main/deployment/raspberry-pi/raspberry-pi-setup.sh
 chmod +x raspberry-pi-setup.sh
 ./raspberry-pi-setup.sh
 ```
@@ -66,17 +66,17 @@ chmod +x raspberry-pi-setup.sh
 - ✅ Auto-update script
 - ✅ Security headers optimization
 
-**Documentation:** See [README-raspberry-pi.md](README-raspberry-pi.md)
+**Documentation:** See [docs/deployment/README-raspberry-pi.md](docs/deployment/README-raspberry-pi.md)
 
 ### 3. ⚡ **K3s Kubernetes Cluster**
 Enterprise-grade deployment with high availability:
 
 ```bash
 # Master node setup
-./k3s-cluster-setup.sh master
+./deployment/k3s/k3s-cluster-setup.sh master
 
 # Worker node setup (on second Pi)
-K3S_URL=https://MASTER_IP:6443 K3S_TOKEN=TOKEN ./k3s-cluster-setup.sh worker
+K3S_URL=https://MASTER_IP:6443 K3S_TOKEN=TOKEN ./deployment/k3s/k3s-cluster-setup.sh worker
 ```
 
 **Features:**
@@ -87,7 +87,7 @@ K3S_URL=https://MASTER_IP:6443 K3S_TOKEN=TOKEN ./k3s-cluster-setup.sh worker
 - ✅ Prometheus + Grafana monitoring
 - ✅ Automatic SSL certificate management
 
-**Documentation:** See [README-k3s-cluster.md](README-k3s-cluster.md)
+**Documentation:** See [docs/deployment/README-k3s-cluster.md](docs/deployment/README-k3s-cluster.md)
 
 ## 📊 **Performance Metrics**
 
@@ -122,7 +122,7 @@ Both deployment methods include automatic update scripts:
 sudo /usr/local/bin/update-website.sh
 
 # K3s Cluster
-./update-k3s-website.sh
+./scripts/update-k3s-website.sh
 ```
 
 ### Manual Updates
@@ -177,15 +177,33 @@ git pull origin main
 
 ```
 📁 project-root/
-├── 📄 index.html              # Main homepage
-├── 🎨 styles.css              # Dark theme styling
-├── ⚡ script.js               # Interactive functionality
-├── 🍓 raspberry-pi-setup.sh   # Single Pi deployment
-├── ⚙️ k3s-cluster-setup.sh    # Kubernetes cluster setup
-├── 📊 k3s-monitoring-setup.sh # Monitoring stack
-├── 🔄 update-*.sh             # Update scripts
-├── 📚 README-*.md             # Deployment guides
-└── 🛠️ *.yaml                  # Kubernetes manifests
+├── 📄 README.md                    # Main project documentation
+├── 📄 LICENSE                     # MIT License
+├── 📁 src/                        # Website source code
+│   ├── 📄 index.html              # Main homepage
+│   ├── 🎨 styles.css              # Dark theme styling
+│   ├── ⚡ script.js               # Interactive functionality
+│   └── 📚 README.md               # Source code documentation
+├── 📁 deployment/                 # Deployment configurations
+│   ├── 📁 raspberry-pi/           # Single Pi deployment
+│   │   └── 🍓 raspberry-pi-setup.sh
+│   ├── 📁 k3s/                    # Kubernetes cluster
+│   │   ├── ⚙️ k3s-cluster-setup.sh
+│   │   ├── 📊 k3s-monitoring-setup.sh
+│   │   └── 🛠️ k3s-deployment-manifests.yaml
+│   └── 📚 README.md               # Deployment overview
+├── 📁 scripts/                    # Utility scripts
+│   ├── 🔄 update-k3s-website.sh   # K3s update script
+│   └── 📚 README.md               # Scripts documentation
+├── 📁 docs/                       # Documentation
+│   ├── 📁 deployment/             # Deployment guides
+│   │   ├── 📚 README-raspberry-pi.md
+│   │   └── 📚 README-k3s-cluster.md
+│   ├── 📁 guides/                 # Configuration guides
+│   │   ├── 🌐 dns-setup-guide.md
+│   │   └── 🔧 router-port-forwarding-guide.md
+│   └── 📚 README.md               # Documentation overview
+└── 📁 configs/                    # Configuration files (future use)
 ```
 
 ## 🧪 **Testing**
